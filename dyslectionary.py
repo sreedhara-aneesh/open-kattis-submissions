@@ -20,7 +20,11 @@ groups.append(group)
 for group in groups:
     group.sort()
 
-for group in groups:
+for i, group in enumerate(groups):
+    max_len = 0
     for word in group:
-        print(word[::-1])
-    print()
+        max_len = max(max_len, len(word))
+    for word in group:
+        print(str(word[::-1]).rjust(max_len))
+    if i != len(groups) - 1:
+        print()
